@@ -2,13 +2,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <windows.h>
+#include <stdlib.h>
+
 int main()
 {
-	char smm1[] = "welcome to bit!!!!!!";
-	char smm2[] = "####################";
-	int left = 0;
+	char smm1[] = "              welcome to bit!!!!!!              ";
+	char smm2[] = "              ####################              ";
+	char smm3[] = "                                                ";
+	strcpy(smm3, smm2);
+	int left = 13;
 	//int right= sizeof(smm1) / sizeof(smm1[0])-2;
-	int right = strlen(smm1) - 1;
+	int right = strlen(smm1) - 14;
 	for (int i = 0; i <= right; i++)
 	{
 		smm2[left] = smm1[left];
@@ -18,6 +22,24 @@ int main()
 		//system("cls");//执行系统命令的一个函数，cls是清屏的命令
 		left++;
 		right--;
+		if (strcmp(smm2,smm1)==0)
+		{
+			break;
+		}
+	}
+	//printf("%s\n", smm3);
+	for (int i = 0; i <= right; i++)
+	{
+		smm1[left] = smm3[left];
+		smm1[right] = smm3[right];
+		printf("%s\n", smm1);
+		Sleep(1000);
+		left++;
+		right--;
+		if (strcmp(smm1, smm3) == 0)
+		{
+			break;
+		}
 	}
 	return 0;
 }

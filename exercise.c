@@ -3,24 +3,75 @@
 #include <string.h>
 #include <windows.h>
 #include <stdlib.h>
+#include <math.h>
+
+int main()
+
+{
+	int i = 0;
+	double sum = 0.0;
+	int flg = 1;
+	for (i = 1; i <= 3; i++)
+	{
+		sum += flg*1.0 / i;
+		flg = -flg;
+	}
+	printf("%lf\n", sum);
+
+	return 0;
+}
+
+#if 0
+int main()
+{
+	int a;
+	a = sizeof(double);
+	printf("%d\n", a);
+	return 0;
+}
+#endif 
+
+
 
 #if 0
 /*
  打印100-200之间的素数
 */
+//试除法
+//int main()
+//{
+//	int num = 0,i=0,flg=0;
+//	for (num = 100; num <= 200; num++)
+//	{
+//		for (i = 2; i <= sqrt(num); i++)
+//		{
+//			if (num % i == 0)
+//			{
+//				break;
+//			}
+//		}
+//		if (i> sqrt(num))
+//		{
+//			flg++;
+//			printf("%d ", num);
+//		}
+//	}
+//	printf("\n%d ", flg);
+//	return 0;
+//}
 int main()
 {
-	int num = 0,i=0,flg=0;
-	for (num = 100; num <= 200; num++)
+	int num = 0, i = 0, flg = 0;
+	for (num = 101; num <= 200; num+=2)
 	{
-		for (i = 2; i < num; i++)
+		for (i = 2; i <= sqrt(num); i++)
 		{
 			if (num % i == 0)
 			{
 				break;
 			}
 		}
-		if (i == num)
+		if (i > sqrt(num))
 		{
 			flg++;
 			printf("%d ", num);

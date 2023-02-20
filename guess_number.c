@@ -15,18 +15,20 @@ int main()
 		int opt=0;
 		int input = 0;
 		header();
-		printf("请输入:>");
+		printf("                              请输入(1-2):>");
 		scanf("%d", &opt);
+		printf("\n");
 		switch (opt)
 		{
 		case 1:
 			game();//猜数字游戏函数
 			continue;
 		case 2:
-			printf("退出游戏\n");
+			printf("                              退出游戏\n");
 			break;
 		default:
-			printf("输入错误\n");
+			printf("                              输入错误,请重新输入\n");
+			continue;
 		}
 		break;
 	}
@@ -34,8 +36,10 @@ int main()
 }
 void header(void)
 {
-	printf("*********************************************\n");
-	printf("    1.玩游戏                 2.退出游戏      \n");
+	printf("\n");
+	printf("                                  猜数字游戏                            \n");
+	printf("                       1.玩游戏                 2.退出游戏              \n");
+	printf("\n");
 }
 
 void game(void)
@@ -46,19 +50,25 @@ void game(void)
 	ret = rand() % 1000 + 1;//生成一个1-1000的随机数
 	while (1)
 	{
-		printf("请猜数字：>");
+		printf("                              请猜数字：>");
 		scanf("%d", &guess);
 		if (guess < ret)
 		{
-			printf("你猜小啦！\n");
+			printf("\n");
+			printf("                              你猜小啦！\n");
+			printf("\n");
 		}
 		else if(guess > ret)
 		{
-			printf("你猜大啦！\n");
+			printf("\n");
+			printf("                              你猜大啦！\n");
+			printf("\n");
 		}
 		else
 		{
-			printf("恭喜你，猜对了！\n");
+			printf("\n");
+			printf("                              恭喜你，猜对了！\n");
+			printf("\n");
 			break;
 		}
 	}

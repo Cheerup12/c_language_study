@@ -3,7 +3,10 @@
 //#include <stdio.h>
 //#include <string.h>
 //#include <math.h>
-
+//#ifndef FUNCTION_H
+//#define FUNCTION_H
+//
+//#endif
 #if 0
 /* memset example */
 int main()
@@ -182,6 +185,8 @@ int binary_search(int arr[], int left, int right, int n)
 #endif
 #include <stdio.h>
 
+
+#if 0
 void add(int* x);
 
 int main()
@@ -195,4 +200,81 @@ int main()
 void add(int* x)
 {
     (* x)++;
+}
+#endif
+
+#if 0
+#include <stdio.h>
+/*
+递归的两个必要条件：
+1.存在限制条件，当满足这个限制条件的时候，递归便不再继续。
+2.每次递归调用之后越来越接近这个限制条件
+一个递归函数如果没有这两个条件，那这个递归函数多半是错误的。
+*/
+void pint(int n)
+{
+    if (n > 9)//递归限制条件
+    {
+        pint(n / 10);
+    }
+    printf("%d ", n % 10);
+}
+
+int main()
+{
+    unsigned int smm = 0;
+    scanf("%d", &smm);
+    pint(smm);
+
+    return 0;
+}
+
+#endif
+
+
+
+#include <string.h>
+#include <stdio.h>
+
+//int my_strlen(char* p)
+//{
+//    int count = 0;
+//    while (*p != '\0')
+//    {
+//        count++;
+//        p++;
+//    }
+//    return count;
+//}
+//
+//int main()
+//{
+//    int n = 0;
+//    char smm[10]="bit";
+//    scanf("%s", &smm);
+//    printf("%s\n", smm);
+//    n=my_strlen(smm);
+//    printf("%d\n", n);
+//    return 0;
+//}
+
+
+int my_strlen(char* p)
+{
+    if (*p != '\0')
+    {
+        return 1+my_strlen(p+1);
+    }
+    return 0;
+}
+
+int main()
+{
+    int n = 0;
+    char smm[10] = "bit";
+    scanf("%s", &smm);
+    printf("%s\n", smm);
+    n = my_strlen(smm);
+    printf("%d\n", n);
+    return 0;
 }

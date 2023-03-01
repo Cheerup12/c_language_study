@@ -137,7 +137,12 @@ int main()
 //    return 1;
 //}
 
+
+
+
 #if 0
+
+//二分制查找
 #include <stdio.h>
 
 int binary_search(int arr[], int left, int right, int n);
@@ -203,8 +208,14 @@ void add(int* x)
 }
 #endif
 
+
+
+
+
+//递归函数
 #if 0
 #include <stdio.h>
+
 /*
 递归的两个必要条件：
 1.存在限制条件，当满足这个限制条件的时候，递归便不再继续。
@@ -229,7 +240,7 @@ int main()
     return 0;
 }
 
-#endif
+
 
 
 
@@ -271,10 +282,98 @@ int my_strlen(char* p)
 int main()
 {
     int n = 0;
-    char smm[10] = "bit";
+    char smm[20] = "bit";
     scanf("%s", &smm);
-    printf("%s\n", smm);
     n = my_strlen(smm);
-    printf("%d\n", n);
+    printf("字符数：%d\n", n);
+    return 0;
+}
+
+#endif
+
+#if 0
+/*
+递归与迭代
+*/
+//求一个数的阶乘和
+int factorial(int x)
+{
+    int ret = 1;
+    for (int i = 1; i <= x; i++)
+    {
+        ret *= i;
+    }
+    return ret;
+}
+int factorial_1(int x)//3
+{
+    if (x == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return x * factorial_1(x - 1);//
+    }   
+}
+
+//求斐波那契数
+int main()
+{
+    int n = 0;
+    int result = 0;
+    scanf("%d", &n);
+    result = factorial(n);
+    printf("result=%d\n", result);
+    result = factorial_1(n);
+    printf("result=%d\n", result);
+    return 0;
+}
+
+#endif
+
+int  Fibonacci_sequence(int x)
+{
+    if (x <= 2)
+    {
+        return 1;
+    }
+    else
+    {
+        return Fibonacci_sequence(x - 1) + Fibonacci_sequence(x - 2);
+    }
+}
+int  Fibonacci_sequence_1(int x)
+{
+    int a = 1;
+    int b = 1;
+    int c = 0;
+    if (x <= 2)
+    {
+        return 1;
+    }
+    else
+    {
+        for (int i = 3; i <= x; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return c;
+    }
+
+}
+
+int main()
+{
+    int smm = 0;
+    int result = 0;
+    scanf("%d", &smm);
+
+    /*result = Fibonacci_sequence(smm);
+    printf("第%d个斐波那契数：%d\n", smm, result);*/
+    result = Fibonacci_sequence_1(smm);
+    printf("第%d个斐波那契数：%d\n", smm, result);
     return 0;
 }
